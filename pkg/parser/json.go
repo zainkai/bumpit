@@ -4,6 +4,14 @@ import "encoding/json"
 
 type RawJsonMap map[string](*json.RawMessage)
 
+type JsonParser interface {
+	GetAny(string) interface{}
+	GetString(string) string
+	GetInt64(string) int64
+	GetFloat64(string) float64
+	GetBool(string) bool
+}
+
 func UnmarshalToMap(data []byte) (RawJsonMap, error) {
 	obj := RawJsonMap{}
 
