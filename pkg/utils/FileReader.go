@@ -34,3 +34,12 @@ func (this *FileReader) Load() error {
 	this.content = &data
 	return nil
 }
+
+func (this *FileReader) commit(data []byte) error {
+	err := ioutil.WriteFile(this.getFullPath(), data, 0644)
+	if err == nil {
+		this.content = &data
+	}
+
+	return err
+}
