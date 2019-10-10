@@ -6,11 +6,14 @@ GOTEST=$(GOCMD) test
 BINARY_NAME=bumpit
 BINARY_UNIX=$(BINARY_NAME)_unix
 
+.PHONY: all test clean bench
 all: test build
 build: 
 	$(GOBUILD) -o $(BINARY_NAME) ./cmd/$(BINARY_NAME)
 test: 
-	$(GOTEST) -v ./test
+	$(GOTEST) ./test/... -v
+bench:
+	$(GOTEST) -bench=. ./test/... -benchmem
 clean: 
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)
@@ -18,7 +21,6 @@ clean:
 run:
 	$(GOBUILD) -o $(BINARY_NAME) -v ./cmd/$(BINARY_NAME)
 	./$(BINARY_NAME)
-
 
 # Cross compilation
 build-linux:
