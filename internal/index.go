@@ -24,7 +24,7 @@ func addCommands(app *cli.App) {
 		}, {
 			Name:    "Major",
 			Aliases: []string{"ma", "major"},
-			Usage:   "Update minor version",
+			Usage:   "Update major version",
 			Action: func(c *cli.Context) error {
 				return commands.Process(c, commands.MAJOR)
 			},
