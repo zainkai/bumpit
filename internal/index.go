@@ -9,9 +9,25 @@ func addCommands(app *cli.App) {
 	app.Commands = []cli.Command{
 		{
 			Name:    "Patch",
-			Aliases: []string{"P", "p", "patch"},
+			Aliases: []string{"p", "patch"},
 			Usage:   "Update patch version",
-			Action:  commands.Process,
+			Action: func(c *cli.Context) error {
+				return commands.Process(c, commands.PATCH)
+			},
+		}, {
+			Name:    "Minor",
+			Aliases: []string{"mi", "minor"},
+			Usage:   "Update minor version",
+			Action: func(c *cli.Context) error {
+				return commands.Process(c, commands.MINOR)
+			},
+		}, {
+			Name:    "Major",
+			Aliases: []string{"ma", "major"},
+			Usage:   "Update minor version",
+			Action: func(c *cli.Context) error {
+				return commands.Process(c, commands.MAJOR)
+			},
 		},
 	}
 }
