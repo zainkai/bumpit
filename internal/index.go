@@ -2,11 +2,18 @@ package internal
 
 import (
 	"github.com/urfave/cli"
+	"github.com/zainkai/bumpit/internal/commands"
 )
 
 func addCommands(app *cli.App) {
-	commands := []cli.Command{}
-	app.Commands = commands
+	app.Commands = []cli.Command{
+		{
+			Name:    "Patch",
+			Aliases: []string{"P", "p", "patch"},
+			Usage:   "Update patch version",
+			Action:  commands.Process,
+		},
+	}
 }
 
 func addInfo(app *cli.App) {
