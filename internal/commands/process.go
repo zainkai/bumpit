@@ -3,6 +3,7 @@ package commands
 import (
 	"github.com/coreos/go-semver/semver"
 	"github.com/urfave/cli"
+	"github.com/zainkai/bumpit/internal/git"
 	"github.com/zainkai/bumpit/pkg/utils"
 )
 
@@ -32,5 +33,5 @@ func Process(c *cli.Context, res Resouces) error {
 		return err
 	}
 
-	return nil
+	return git.CommitToGit(c)
 }

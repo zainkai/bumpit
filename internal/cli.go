@@ -50,6 +50,10 @@ func addFlags(app *cli.App) {
 			Value: DefaultFile,
 			Usage: "target file",
 		},
+		cli.BoolFlag{
+			Name:  "commit, c",
+			Usage: "commits version to git",
+		},
 	}
 }
 
@@ -66,6 +70,7 @@ func InitApp() *cli.App {
 	addInfo(app)
 	addCommands(app)
 	addFlags(app)
+	addAfter(app)
 
 	return app
 }
