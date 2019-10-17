@@ -22,7 +22,7 @@ func NewEditor(path string) (*Editor, error) {
 		return nil, err1
 	}
 
-	writerHandle, err2 := ioutil.TempFile("", "bumpit.*.tmp")
+	writerHandle, err2 := ioutil.TempFile(".", "bumpit.*.tmp")
 	if err2 != nil {
 		return nil, err2
 	}

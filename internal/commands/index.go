@@ -6,7 +6,7 @@ import (
 	"github.com/zainkai/bumpit/pkg/utils"
 )
 
-func processVersionLine(line string, update UPDATE_SEMVER) string {
+func ProcessVersionLine(line string, update UPDATE_SEMVER) string {
 	vStr := GetVersion(line)
 	s, _ := semver.NewVersion(vStr)
 
@@ -23,7 +23,7 @@ func Process(c *cli.Context, update UPDATE_SEMVER) error {
 
 	e.EditLine(func(i int, line string) string {
 		if IsVersionNo(line) {
-			return processVersionLine(line, update) + "\n"
+			return ProcessVersionLine(line, update) + "\n"
 		}
 		return line + "\n"
 	})

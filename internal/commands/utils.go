@@ -8,7 +8,7 @@ import (
 
 // IsVersionNo checks if a string contains npm like version string
 func IsVersionNo(line string) bool {
-	versionStr := regexp.MustCompile(`(^|\s)\"version\": .*`)
+	versionStr := regexp.MustCompile(`\"version\": *\"([0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9]+)?)\"`)
 	return versionStr.MatchString(line)
 }
 
