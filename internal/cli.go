@@ -5,6 +5,8 @@ import (
 	"github.com/zainkai/bumpit/internal/commands"
 )
 
+const DefaultFile string = "./package.json"
+
 func addCommands(app *cli.App) {
 	app.Commands = []cli.Command{
 		{
@@ -12,22 +14,41 @@ func addCommands(app *cli.App) {
 			Aliases: []string{"p", "patch"},
 			Usage:   "Update patch version",
 			Action: func(c *cli.Context) error {
-				return commands.Process(c, commands.PATCH)
+				return commands.Process(c, commands.Resouces{
+					c.GlobalString("file"),
+					commands.PATCH,
+				})
 			},
 		}, {
 			Name:    "Minor",
 			Aliases: []string{"mi", "minor"},
 			Usage:   "Update minor version",
 			Action: func(c *cli.Context) error {
-				return commands.Process(c, commands.MINOR)
+				return commands.Process(c, commands.Resouces{
+					c.GlobalString("file"),
+					commands.MINOR,
+				})
 			},
 		}, {
 			Name:    "Major",
 			Aliases: []string{"ma", "major"},
 			Usage:   "Update major version",
 			Action: func(c *cli.Context) error {
-				return commands.Process(c, commands.MAJOR)
+				return commands.Process(c, commands.Resouces{
+					c.GlobalString("file"),
+					commands.MAJOR,
+				})
 			},
+		},
+	}
+}
+
+func addFlags(app *cli.App) {
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:  "file, f, path, p",
+			Value: DefaultFile,
+			Usage: "target file",
 		},
 	}
 }
@@ -44,6 +65,7 @@ func InitApp() *cli.App {
 	app := cli.NewApp()
 	addInfo(app)
 	addCommands(app)
+	addFlags(app)
 
 	return app
 }

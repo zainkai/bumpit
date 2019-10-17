@@ -15,15 +15,15 @@ func ProcessVersionLine(line string, update UPDATE_SEMVER) string {
 	return ReplaceVersion(line, s.String())
 }
 
-func Process(c *cli.Context, update UPDATE_SEMVER) error {
-	e, err := utils.NewEditor("./package.json")
+func Process(c *cli.Context, res Resouces) error {
+	e, err := utils.NewEditor(res.TargetFile)
 	if err != nil {
 		return err
 	}
 
 	e.EditLine(func(i int, line string) string {
 		if IsVersionNo(line) {
-			return ProcessVersionLine(line, update) + "\n"
+			return ProcessVersionLine(line, res.Update) + "\n"
 		}
 		return line + "\n"
 	})
