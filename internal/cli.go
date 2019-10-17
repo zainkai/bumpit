@@ -59,7 +59,7 @@ func addFlags(app *cli.App) {
 
 func addInfo(app *cli.App) {
 	app.Name = "bumpit"
-	app.Description = "Auto update Major/Minor/Patch of any JavaScript project!"
+	app.Usage = "Auto update Major/Minor/Patch of any JavaScript project!"
 	app.Author = "Kevin Turkington (Zainkai)"
 	app.Version = "1.0.0"
 }

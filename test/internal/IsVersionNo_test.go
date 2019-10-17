@@ -40,7 +40,7 @@ var testsIsVersionNo = []struct {
 		`"version": 1.1.1`,
 		false,
 	}, {
-		"not versioning line",
+		"express version",
 		`              "express": "1.1.1"`,
 		false,
 	},
