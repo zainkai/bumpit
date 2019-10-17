@@ -70,7 +70,6 @@ func InitApp() *cli.App {
 	addInfo(app)
 	addCommands(app)
 	addFlags(app)
-	addAfter(app)
 
 	return app
 }
