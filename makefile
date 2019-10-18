@@ -5,7 +5,8 @@ GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
 GOMOD=$(GOCMD) mod
 BINARY_NAME=bumpit
-BINARY_UNIX=$(BINARY_NAME)_unix
+BINARY_DARWIN=$(BINARY_NAME)-darwin-amd64
+BINARY_LINUX=$(BINARY_NAME)-linux-amd64
 
 .PHONY: all test clean bench
 all: test build
@@ -27,6 +28,9 @@ deps:
 
 # Cross compilation
 build-linux:
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_UNIX) -v
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_LINUX) ./cmd/$(BINARY_NAME)
+build-darwin:
+	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 $(GOBUILD) -o $(BINARY_DARWIN) ./cmd/$(BINARY_NAME)
+
 docker-build:
 	docker run --rm -it -v "$(GOPATH)":/go -w /go/src/bitbucket.org/rsohlich/makepost golang:latest go build -o "$(BINARY_UNIX)" -v
