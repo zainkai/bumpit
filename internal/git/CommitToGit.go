@@ -6,7 +6,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-const DefaultCommitMsg string = `"bump version"`
+const DefaultCommitMsg string = "bump version"
 
 func CommitToGit(c *cli.Context) error {
 	if !c.GlobalBool("commit") {
