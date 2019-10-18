@@ -19,7 +19,8 @@ bench:
 clean: 
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)
-	rm -f $(BINARY_UNIX)
+	rm -f $(BINARY_DARWIN)
+	rm -f $(BINARY_LINUX)
 run:
 	$(GOBUILD) -o $(BINARY_NAME) -v ./cmd/$(BINARY_NAME)
 	./$(BINARY_NAME)
@@ -31,6 +32,3 @@ build-linux:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_LINUX) ./cmd/$(BINARY_NAME)
 build-darwin:
 	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 $(GOBUILD) -o $(BINARY_DARWIN) ./cmd/$(BINARY_NAME)
-
-docker-build:
-	docker run --rm -it -v "$(GOPATH)":/go -w /go/src/bitbucket.org/rsohlich/makepost golang:latest go build -o "$(BINARY_UNIX)" -v

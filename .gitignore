@@ -1,4 +1,6 @@
 bumpit
+bumpit-*
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
