@@ -61,7 +61,7 @@ func addInfo(app *cli.App) {
 	app.Name = "bumpit"
 	app.Usage = "Auto update Major/Minor/Patch of any JavaScript project!"
 	app.Author = "Kevin Turkington (Zainkai)"
-	app.Version = "1.0.0"
+	app.Version = "1.0.1"
 }
 
 // InitApp Initializes CLI application
