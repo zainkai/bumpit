@@ -21,9 +21,10 @@ deploy:
   api_key:
     secure: EB1N31MM/z9qoT546MjYV0jO6kTlTahqMoHBwKt7RvGL7rMB50QfvzdD3Nsbus1HqVXC3NMZP13yk/0x8bVWbnKTPSl6WmKlXw+ZS3ri3btthFWDcqgFXVisckwD7jM/GE/fwq5j3kLdLlGNUBo8jAcqxbEEOrA635KPsvFIV+Q3qJzC+sneT8EeX+qLRj4z9Roy5CtxW7hydd4IdY3EMyBGAHnI+USOrQwLe3dkS4BaDVFSDfPSUFhdHqQ+0SlLBjjRz2q3zRN9nycaKufdhXzvl518VtHdE6C3TSuzFWnfksrkdq4jRh8MMpsyLECc1NaTdudlddrIJRACAZF3ZODeN6RRpDI77yr/iv27D61m3ED0aTnWoM0oXfOhD2d5k6Q645HK8XybcIJvmsYg9U0QPLFPd9OJsLWYxM2xschTW45ZMpP7kAhdiAx1GUoNQTttZab63c0Np3TBOQivKMU6reIMSoluekqHbe35IWNod75uujNaihoy7C4upEFWDWiug3HgDDYLNQbjooSihYTujwW0ufym2WzG+0Eu0fqDNZkYHg0kjDKAil8m6yGmmPAnVs1VBvMqdauNRimjt+4+d2CLKho7MiS8U2khxp7fO6YLYhhdCz5v8reWycp3JiuC6UjQw/OnRr8SEyFvCM6Wv/gXleUAFPo5vTloZXI=
   file:
-    - "release/bumpit-linux-amd64"
-    - "release/bumpit-darwin-amd64"
+    - "bumpit-linux-amd64"
+    - "bumpit-darwin-amd64"
   skip_cleanup: true
   on:
+    repo: zainkai/bumpit
     tags: true
 
