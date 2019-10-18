@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zainkai/bumpit.svg?branch=master)](https://travis-ci.org/zainkai/bumpit)
+
 ```txt
 NAME:
    bumpit - Auto update Major/Minor/Patch of any JavaScript project!
