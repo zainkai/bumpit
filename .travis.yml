@@ -3,8 +3,11 @@ language: go
 go: 
  - 1.3.3
 
+env:
+  - GO111MODULE=on
+
 before_script:
-  - env GO111MODULE=on make deps
+  - make deps
 
 script:
   - make test
