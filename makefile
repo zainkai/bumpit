@@ -3,6 +3,7 @@ GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
+GOMOD=$(GOCMD) mod
 BINARY_NAME=bumpit
 BINARY_UNIX=$(BINARY_NAME)_unix
 
@@ -21,6 +22,8 @@ clean:
 run:
 	$(GOBUILD) -o $(BINARY_NAME) -v ./cmd/$(BINARY_NAME)
 	./$(BINARY_NAME)
+deps:
+	$(GOMOD) download
 
 # Cross compilation
 build-linux:
