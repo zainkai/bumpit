@@ -46,4 +46,11 @@ GLOBAL OPTIONS:
 ```
 
 ## Installation
-TBD
+   - Move the executable to your runnables directory: `sudo mv /path/to/executable /usr/bin/bumpit`
+ 
+   Add the following to your `.bashrc` or `.bash_profile`
+   - `export PATH=$PATH:/usr/bin/bumpit`
+ 
+   - Update your terminal: `source ~/.bash_profile` or `source ~/.bashrc`
+   - Run: `bumpit help`
+   
