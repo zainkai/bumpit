@@ -1,5 +1,6 @@
 # BumpIt
 [![Build Status](https://travis-ci.org/zainkai/bumpit.svg?branch=master)](https://travis-ci.org/zainkai/bumpit)
+[![Go Report Card](https://goreportcard.com/badge/github.com/zainkai/bumpit)](https://goreportcard.com/report/github.com/zainkai/bumpit)
 
 ```txt
 NAME:
